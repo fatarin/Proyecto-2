@@ -2,8 +2,8 @@
    PawLink · main.css (índice)
    El orden de los @import es el orden de la cascada: no reordenar.
    ========================================================================== */
-/* Orden de capas: las utilidades ganan a los componentes y lo responsive gana a todo */
-@layer base,components,utilities,responsive;
+/* El orden de capas (base, components, utilities, responsive) se declara al principio de tokens.css, el primer archivo importado:
+   la W3C solo admite @charset y @import antes de cualquier otra regla. */
 
 @import url('tokens.css'); /* Variables (:root) */
 @import url('components.css'); /* Base y componentes globales (capa components: reset, cabecera, botones, tarjetas, formularios…) */

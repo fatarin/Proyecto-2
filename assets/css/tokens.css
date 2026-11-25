@@ -4,6 +4,9 @@
    1. Variables · 2. Base · 3. Componentes · 4. Utilidades · 5. Imágenes de fondo · 6. Responsive
    ========================================================================== */
 
+/* Orden de capas: las utilidades ganan a los componentes y lo responsive gana a todo (debe ir antes de cualquier regla con capa) */
+@layer base,components,utilities,responsive;
+
 /* 1. VARIABLES */
 :root{
   /* Colores */
