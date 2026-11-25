@@ -1,0 +1,10 @@
+/* ---- Panel lateral de las áreas usuario / protectora / admin: se mantiene visible al hacer scroll ----
+   Solo cuando es columna (>1024 px; por debajo pasa a barra horizontal arriba). Si el panel es más alto que la
+   pantalla (p. ej. admin), tiene su propio scroll. En usuario la cabecera es fija, así que se descuenta su alto. */
+@media (min-width:1025px){
+  .page .layout>nav{--sb-top:var(--space-16);position:sticky;top:var(--sb-top);align-self:flex-start;max-height:calc(100vh - var(--sb-top) - var(--space-16));overflow-y:auto;overscroll-behavior:contain}
+  body:has(.hdr) .page .layout>nav{--sb-top:calc(62px + var(--space-16))}
+}
+@media (min-width:1025px) and (max-width:1100px){
+  body:has(.hdr) .page .layout>nav{--sb-top:calc(116px + var(--space-16))}
+}

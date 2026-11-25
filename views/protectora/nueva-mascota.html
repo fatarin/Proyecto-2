@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PawLink – Añadir mascota</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&amp;family=Nunito:wght@400;600;800&amp;display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../../assets/img/pawlink-logo.svg">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<script src="../../assets/js/core/boot.js"></script>
+</head>
+<body data-module="session toast">
+<div class="page page--nueva-mascota"><a href="#contenido" class="skip-link">Saltar al contenido</a>
+<div class="container p-0-32-60">
+<header class="topbar d-flex ai-center jc-space-between p-22-0 fwrap-wrap gap-16">
+<a href="../../index.html" class="logo"><img class="logo__mark" src="../../assets/img/pawlink-logo.svg" alt="" width="40" height="40">
+Paw<span class="logo__accent">Link</span></a>
+<details class="um"><summary><span class="av"><img class="ill" src="../../assets/img/logo-huella-abierta-avatar.svg" alt="Logo de Huella Abierta"></span><span class="un">Huella Abierta</span><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></summary><nav class="umm" aria-label="Menú de protectora"><a href="panel.html">Panel</a><a href="tratamientos.html">Tratamientos</a><a href="cuentas.html">Cuentas</a><a href="mi-protectora.html">Mi protectora</a><a href="../../index.html" data-logout>Cerrar sesión</a></nav></details>
+</header>
+<div class="layout d-flex gap-32 fwrap-wrap ai-flex-start mt-12">
+<nav class="flex-1-1-200 maxw-240"><ul class="nav-list d-flex fd-column gap-4"><li><a href="panel.html" class="d-block p-10-14 r-md fw-700">Resumen</a></li><li><a href="nueva-mascota.html" class="d-block p-10-14 r-md fw-700 bg-primary-tint c-primary">Añadir mascota</a></li><li><a href="tratamientos.html" class="d-block p-10-14 r-md fw-700">Tratamientos</a></li><li><a href="pawgifts-recibidos.html" class="d-block p-10-14 r-md fw-700">PawGifts recibidos</a></li><li><a href="cuentas.html" class="d-block p-10-14 r-md fw-700">Cuentas</a></li><li></li><li><a href="mi-protectora.html" class="d-block p-10-14 r-md fw-700">Mi protectora</a></li><li><a href="#" data-sim="Cobros e IBAN: función pendiente de diseño (próxima versión del prototipo)." class="d-block p-10-14 r-md fw-700">Cobros</a></li></ul></nav>
+<main class="flex-999-1-560 minw-0" id="contenido"><h1 class="m-0-0-20 ff-display fw-800 fs-40">Añadir mascota</h1>
+<form class="form-contents" method="post" action="#" data-module="form-validator" novalidate data-success-href="panel.html" data-success-message="Mascota enviada a revisión."><section class="card p-28 mb-24" aria-labelledby="h-1"><h2 id="h-1">Datos básicos</h2><p class="req-legend"><span class="req" aria-hidden="true">*</span> Campo obligatorio</p>
+<div class="d-flex gap-18 fwrap-wrap mb-18"><div class="flex-1-1-240"><label class="f" for="n">Nombre<span class="req" aria-hidden="true"> *</span></label><input id="n" class="in" placeholder="" data-v="required name" data-msg="Escribe el nombre de la mascota." aria-required="true"></div><div class="flex-1-1-240"><label class="f" for="e">Especie<span class="req" aria-hidden="true"> *</span></label><select id="e" class="in" data-v="required" data-msg="Elige la especie." aria-required="true"><option>Perro</option><option>Gato</option><option>Otro</option></select></div></div>
+<div class="d-flex gap-18 fwrap-wrap mb-18"><div class="flex-1-1-240"><label class="f" for="a">Edad aproximada<span class="req" aria-hidden="true"> *</span></label><input id="a" class="in" placeholder="" data-v="required min:1" data-msg="Indica la edad aproximada." aria-required="true"></div><div class="flex-1-1-240"><label class="f" for="s">Sexo<span class="req" aria-hidden="true"> *</span></label><select id="s" class="in" data-v="required" data-msg="Elige el sexo." aria-required="true"><option>Hembra</option><option>Macho</option></select></div><div class="flex-1-1-240"><label class="f" for="t">Tamaño<span class="req" aria-hidden="true"> *</span></label><select id="t" class="in" data-v="required" data-msg="Elige el tamaño." aria-required="true"><option>Pequeño</option><option>Mediano</option><option>Grande</option></select></div></div>
+<label class="f" for="mv">Motivo por el que necesita apoyo<span class="req" aria-hidden="true"> *</span></label><textarea id="mv" class="in" rows="3" placeholder="Edad avanzada, enfermedad, discapacidad, comportamiento o larga estancia en la protectora" data-v="required min:10 max:500" data-msg="Explica por qué necesita apoyo (mínimo 10 caracteres)." aria-required="true"></textarea><p class="m-6-0-18 fs-14 c-muted">PawLink está pensado para mascotas con más dificultades para ser adoptadas. Este dato nos ayuda a comprobar que la ficha encaja.</p><label class="f" for="h">Su historia<span class="req" aria-hidden="true"> *</span></label><textarea id="h" class="in" rows="4" placeholder="Cómo llegó, cómo es y qué necesita" data-v="required min:20 max:1000" data-msg="Cuenta su historia (mínimo 20 caracteres)." aria-required="true"></textarea>
+<div class="mt-18"><span class="f">Fotos</span><div class="ph h-120 r-lg bd-2-dashed-primary">Arrastra aquí las fotos o pulsa para subirlas</div></div></section><section class="card p-28 mb-24" aria-labelledby="h-2"><h2 id="h-2">¿Necesita un tratamiento?</h2><p class="m-0-0-14 c-muted">Guarda primero la mascota. Después podrás crear su tratamiento y subir el presupuesto del veterinario desde <b>Tratamientos</b>; PawLink lo revisará antes de publicarlo.</p><a href="crear-tratamiento.html" class="fw-800 c-primary td-underline">Ir a crear tratamiento</a></section><p class="cx-note">PawLink revisa cada mascota nueva antes de publicarla, para comprobar que encaja en el perfil al que se orienta el sitio. Verás el estado en tu panel y te avisaremos por correo.</p><div class="d-flex gap-12 fwrap-wrap"><button class="btn" type="submit">Enviar a revisión</button><button class="btn btn2" type="button" data-module="go-back" data-back-href="panel.html">Cancelar</button></div></form>
+</main>
+</div>
+</div>
+
+<footer class="site-footer site-footer--mini"><div class="container container--mini"><div class="footer-mini"><p>© 2026 PawLink. Todos los derechos reservados.</p><ul class="footer-mini-links"><li><a href="../public/terminos-uso.html" class="fl">Términos de uso</a></li><li><a href="../public/aviso-legal.html" class="fl">Aviso legal</a></li><li><a href="../public/politica-privacidad.html" class="fl">Política de privacidad</a></li><li><a href="../public/politica-cookies.html" class="fl">Política de cookies</a></li><li><a href="../public/contacto.html" class="fl">Contacto</a></li></ul></div></div></footer>
+</div>
+<script src="../../assets/js/core/app.js" defer></script>
+<script src="../../assets/js/core/dom.js" defer></script>
+<script src="../../assets/js/core/storage.js" defer></script>
+<script src="../../assets/js/components/session.js" defer></script>
+<script src="../../assets/js/components/toast.js" defer></script>
+<script src="../../assets/js/components/form-validator.js" defer></script>
+<script src="../../assets/js/components/go-back.js" defer></script>
+</body>
+</html>

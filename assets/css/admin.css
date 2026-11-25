@@ -1,0 +1,57 @@
+/* Administración PawLink */
+.adm-top{background:#0F2A2C;color:#fff;padding:12px 22px;border-radius:0 0 18px 18px}
+.adm-top .logo{color:#fff}.adm-top .um summary{color:#fff}
+.adm-badge{display:inline-flex;align-items:center;height:28px;padding:0 12px;border-radius:999px;background:var(--color-accent);color:#1D2B2A;font-size:13px;font-weight:800}
+.adm-nav-h{margin:16px 0 4px;padding:0 14px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--color-muted-light)}
+.adm-n{margin-left:auto;min-width:24px;padding:2px 8px;border-radius:999px;background:var(--color-primary-tint-2);color:var(--color-primary);font-size:12px;font-weight:800;text-align:center}
+.adm-n--soon{background:transparent;color:var(--color-muted-light);font-weight:700}
+.adm-soon{opacity:.6;cursor:default}
+.ad-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+.ad-act{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-size:15px}
+.ad-warn-note{background:var(--color-danger-tint);color:var(--color-danger-ink)}
+.ad-list{display:flex;flex-direction:column;gap:14px;margin-top:16px}
+.ad-split{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
+.ad-l{flex:1 1 440px;min-width:0}.ad-r{flex:1 1 340px;min-width:0}
+.ad-dl{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px 24px}
+.ad-note{padding:12px 0 0;background:transparent}
+.ad-ba{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.ad-after{border:2px solid var(--color-primary)}
+.ad-txt{font-size:15px;line-height:1.55}
+.btn.ad-danger{color:var(--color-danger-ink);border-color:var(--color-danger)}
+.btn.ad-danger-fill{background:var(--color-danger);border-color:var(--color-danger);color:#fff}
+.ad:has(#la-ok:checked) .ad-row:not(.ad-ok){display:none}
+.ad:has(#la-warn:checked) .ad-row:not(.ad-warn){display:none}
+.ad:has(#la-late:checked) .ad-row:not(.ad-late){display:none}
+.ad:has(#lp-ok:checked) .ad-row:not(.ad-ok){display:none}
+.ad:has(#lp-warn:checked) .ad-row:not(.ad-warn){display:none}
+.ad:has(#lp-late:checked) .ad-row:not(.ad-late){display:none}
+.ad:has(#lf-ok:checked) .ad-row:not(.ad-ok){display:none}
+.ad:has(#lf-warn:checked) .ad-row:not(.ad-warn){display:none}
+.ad:has(#lf-late:checked) .ad-row:not(.ad-late){display:none}
+.ad:has(#lc-ok:checked) .ad-row:not(.ad-ok){display:none}
+.ad:has(#lc-warn:checked) .ad-row:not(.ad-warn){display:none}
+.ad:has(#lc-late:checked) .ad-row:not(.ad-late){display:none}
+.hd-s--adm{display:none}
+html[data-sess="admin"] .hd-s--vis,html[data-sess="admin"] .hd-s--usr,html[data-sess="admin"] .hd-s--pro{display:none}
+html[data-sess="admin"] .hd-s--adm{display:contents}
+html[data-sess="admin"] .sw [data-sw="admin"]{background:#fff;color:#0F2A2C;font-weight:800}
+
+/* Admin B */
+.ad:has(#lm-den:checked) .ad-row:not(.ad-den){display:none}
+.ad:has(#lm-fil:checked) .ad-row:not(.ad-fil){display:none}
+.ad:has(#lpr-ver:checked) .ad-row:not(.ad-ver){display:none}
+.ad:has(#lpr-rev:checked) .ad-row:not(.ad-rev){display:none}
+.ad:has(#lpr-sus:checked) .ad-row:not(.ad-sus){display:none}
+.ad:has(#lu-act:checked) .ad-row:not(.ad-act){display:none}
+.ad:has(#lu-blo:checked) .ad-row:not(.ad-blo){display:none}
+.ad:has(#lcc-ok:checked) .ad-row:not(.ad-ok){display:none}
+.ad:has(#lcc-warn:checked) .ad-row:not(.ad-warn){display:none}
+.ad:has(#lcc-late:checked) .ad-row:not(.ad-late){display:none}
+.ad-tw{overflow-x:auto}.ad-t td:last-child,.ad-t th:last-child{text-align:center}
+
+/* Admin C */
+.ad:has(#la2-rev:checked) .ad-row:not(.ad-rev){display:none}
+.ad:has(#la2-mod:checked) .ad-row:not(.ad-mod){display:none}
+.ad:has(#la2-ent:checked) .ad-row:not(.ad-ent){display:none}
+.ad:has(#la2-cfg:checked) .ad-row:not(.ad-cfg){display:none}
+.ad-t2 td:last-child,.ad-t2 th:last-child{text-align:right}

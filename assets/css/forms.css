@@ -1,0 +1,41 @@
+/* ==========================================================================
+   Formularios validados, avisos y modales (Fase 4). Sin capa: ganan a lo anterior.
+   JS: form-validator.js · modal.js · toast.js
+   ========================================================================== */
+.fld-err{display:flex;align-items:flex-start;gap:var(--space-6);margin:var(--space-6) 0 var(--space-12);font-size:.875rem;font-weight:700;line-height:1.4;color:var(--color-danger-ink)}
+.fld-err[hidden]{display:none}
+.fld-err::before{content:"!";flex:none;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;margin-top:1px;border-radius:50%;background:var(--color-danger);color:#fff;font-size:.75rem;font-weight:800}
+.in.is-invalid,select.is-invalid,textarea.is-invalid{border-color:var(--color-danger);background:#FFF8F6}
+.in.is-invalid:focus,select.is-invalid:focus,textarea.is-invalid:focus{outline:3px solid var(--color-danger-soft);outline-offset:1px}
+.chk.is-invalid label{color:var(--color-danger-ink)}
+input[type=checkbox].is-invalid,input[type=radio].is-invalid{outline:2px solid var(--color-danger);outline-offset:2px}
+.form-sum{margin:0 0 var(--space-20);padding:var(--space-14) var(--space-16);border:2px solid var(--color-danger);border-radius:var(--radius-md);background:var(--color-danger-tint);color:var(--color-danger-ink);font-size:.9375rem}
+.form-sum[hidden]{display:none}
+.form-sum-t{margin:0 0 var(--space-6);font-weight:800}
+.form-sum ul{margin:0;padding-left:var(--space-20)}
+.form-sum a{color:inherit;font-weight:800;text-decoration:underline}
+
+/* Avisos */
+.toasts{font-family:var(--font-body);position:fixed;z-index:1200;right:var(--space-16);bottom:var(--space-16);display:flex;flex-direction:column;gap:var(--space-8);max-width:min(420px,calc(100vw - 32px))}
+.toast{display:flex;align-items:flex-start;gap:var(--space-10);padding:var(--space-12) var(--space-14);border-radius:var(--radius-md);border-left:6px solid var(--color-primary);background:#fff;color:var(--color-ink);box-shadow:0 8px 28px rgba(15,40,42,.22);font-size:.9375rem;font-weight:700;animation:toast-in .2s ease}
+.toast p{margin:0;flex:1}
+.toast--error{border-left-color:var(--color-danger)}
+.toast--info{border-left-color:var(--color-accent)}
+.toast-x{appearance:none;border:0;background:transparent;font-size:1.25rem;line-height:1;cursor:pointer;color:inherit;padding:0 var(--space-4);min-width:28px;min-height:28px}
+@keyframes toast-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.toast{animation:none}}
+
+/* Modal */
+html.mdl-open{overflow:hidden}
+.mdl{font-family:var(--font-body);position:fixed;inset:0;z-index:1100;display:flex;align-items:center;justify-content:center;padding:var(--space-16);background:rgba(15,40,42,.55)}
+.mdl-box{box-sizing:border-box;width:min(480px,100%);max-height:calc(100vh - 32px);overflow:auto;padding:var(--space-28);border-radius:var(--radius-xl);background:#fff;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.mdl-box--danger{border-top:6px solid var(--color-danger)}
+.mdl-t{margin:0 0 var(--space-10);font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--color-ink)}
+.mdl-p{margin:0 0 var(--space-24);color:var(--color-muted,#4A5A58);line-height:1.5}
+.mdl-act{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:var(--space-10)}
+.mdl-act .btn,.mdl-act .btn2{min-height:46px;cursor:pointer}
+@media (max-width:640px){.mdl-act{flex-direction:column-reverse}.mdl-act .btn,.mdl-act .btn2{width:100%}}
+
+/* Campos obligatorios (post-required.py) */
+.req{color:var(--color-danger);font-weight:800;text-decoration:none}
+.req-legend{margin:var(--space-12,12px) 0 var(--space-16,16px);font-size:.875rem;color:var(--color-muted,#3F5251)}

@@ -1,0 +1,47 @@
+/* ---- Menú hamburguesa (cabecera) · JS: assets/js/components/nav-toggle.js ----
+   Estado abierto = .hd.is-open (lo pone el JS). Sin JS (html sin clase .js) el menú se ve desplegado. */
+.hd-burger{display:none;appearance:none;border:0;background:transparent;padding:0;margin:0;font:inherit;color:inherit}
+@media (max-width:900px){
+  .hd{grid-template-columns:1fr auto auto;grid-template-areas:none;gap:0 var(--space-8);max-height:100vh;overflow-y:auto}
+  .hd-logo{grid-area:auto;grid-column:1;grid-row:1}
+  .js .hd-burger{display:flex;align-items:center;justify-content:center;grid-column:3;grid-row:1;width:44px;height:44px;border-radius:var(--radius-round);cursor:pointer;position:relative}
+  .js .hd-burger:hover{background:rgba(255,255,255,.6)}
+  .hd-burger:focus-visible{outline:3px solid var(--color-primary-soft);outline-offset:2px}
+  .hd-bars{position:relative;display:block;width:22px;height:16px}
+  .hd-bars i{position:absolute;left:0;right:0;height:3px;border-radius:2px;background:var(--color-primary);transition:transform .2s ease,opacity .2s ease,top .2s ease}
+  .hd-bars i:nth-child(1){top:0}.hd-bars i:nth-child(2){top:6.5px}.hd-bars i:nth-child(3){top:13px}
+  .hd.is-open .hd-bars i:nth-child(1){top:6.5px;transform:rotate(45deg)}
+  .hd.is-open .hd-bars i:nth-child(2){opacity:0}
+  .hd.is-open .hd-bars i:nth-child(3){top:6.5px;transform:rotate(-45deg)}
+  .hd-auth{display:contents}
+  .hd-auth .bell{grid-column:2;grid-row:1}
+  .hd-nav,:is(.hd-s,.hd-auth)>:not(.bell):not(.hd-s){grid-area:auto;grid-column:1/-1;box-sizing:border-box}
+  .hd-nav{display:block;margin-top:var(--space-8);border-top:1px solid rgba(20,87,90,.18)}
+  .js .hd:not(.is-open) .hd-nav,.js .hd:not(.is-open) :is(.hd-s,.hd-auth)>:not(.bell):not(.hd-s){display:none}
+  .hd-nav .nav-list{flex-direction:column;align-items:stretch;flex-wrap:nowrap;gap:0;justify-content:flex-start}
+  .hd-nav .nav-list li a{display:flex;align-items:center;min-height:48px;padding:0 var(--space-4);font-size:1.125rem;border-bottom:1px solid rgba(20,87,90,.12)}
+  .hd-nav a::after{display:none}
+  :is(.hd-s,.hd-auth)>a:not(.btn):not(.bell){display:flex;min-height:48px;align-items:center;padding:0 var(--space-4);font-size:1.125rem;border-bottom:1px solid rgba(20,87,90,.12)}
+  :is(.hd-s,.hd-auth)>.btn{display:flex;margin:var(--space-16) 0 var(--space-8);min-height:48px;justify-content:center;font-size:1rem}
+  :is(.hd-s,.hd-auth)>.um{display:block;margin-top:var(--space-8)}
+  .hd .um summary{min-height:48px;font-size:1.125rem}
+  .hd .un{display:inline}
+  .hd .um svg{margin-left:auto}
+  .hd .umm{position:static;min-width:0;box-shadow:none;background:transparent;padding:0 0 var(--space-8)}
+  .hd .umm a{min-height:44px;display:flex;align-items:center}
+}
+@media (max-width:900px) and (prefers-reduced-motion:reduce){
+  .hd-bars i{transition:none}
+}
+@layer components{.ms:has(#mf-nu:checked) .ms-le,.ms:has(#mf-le:checked) .ms-nu{display:none}}
+
+/* Sesión (prototipo): variantes de cabecera según html[data-sess] */
+.hd-s{display:contents}
+.hd-s--usr,.hd-s--pro{display:none}
+html[data-sess="usuario"] .hd-s--vis,html[data-sess="protectora"] .hd-s--vis{display:none}
+html[data-sess="usuario"] .hd-s--usr,html[data-sess="protectora"] .hd-s--pro{display:contents}
+.sw{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 8px;padding:5px 12px;background:#0F2A2C;color:#fff;font-size:12px;line-height:1.2}
+.sw button{font:inherit;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:3px 11px;cursor:pointer}
+.sw button:hover{background:rgba(255,255,255,.15)}
+html[data-sess="visitante"] .sw [data-sw="visitante"],html[data-sess="usuario"] .sw [data-sw="usuario"],html[data-sess="protectora"] .sw [data-sw="protectora"]{background:#fff;color:#0F2A2C;font-weight:800}
+.topbar .um .umm{min-width:210px}

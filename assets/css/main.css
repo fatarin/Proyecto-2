@@ -1,0 +1,22 @@
+/* ==========================================================================
+   PawLink · main.css (índice)
+   El orden de los @import es el orden de la cascada: no reordenar.
+   ========================================================================== */
+/* Orden de capas: las utilidades ganan a los componentes y lo responsive gana a todo */
+@layer base,components,utilities,responsive;
+
+@import url('tokens.css'); /* Variables (:root) */
+@import url('components.css'); /* Base y componentes globales (capa components: reset, cabecera, botones, tarjetas, formularios…) */
+@import url('utilities.css'); /* Utilidades de composición, imágenes y fondos */
+@import url('responsive.css'); /* Ajustes globales tablet y móvil */
+@import url('page-como-funciona.css'); /* Cómo funciona */
+@import url('page-faq.css'); /* Preguntas frecuentes */
+@import url('page-contacto.css'); /* Contacto */
+@import url('page-transparencia.css'); /* Transparencia */
+@import url('page-legales.css'); /* Páginas legales */
+@import url('shared.css'); /* Cookies, cabeceras de página, tarjetas no clicables */
+@import url('pages-account.css'); /* Páginas de usuario, protectora y tratamientos */
+@import url('nav-session.css'); /* Menú hamburguesa y variantes de sesión */
+@import url('admin.css'); /* Administración PawLink */
+@import url('sidebar.css'); /* Panel lateral fijo */
+@import url('forms.css'); /* Formularios validados, avisos y modales */

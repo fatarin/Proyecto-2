@@ -1,0 +1,30 @@
+@layer responsive{
+@media (max-width:640px){.footer-mini{flex-direction:column;align-items:flex-start}}
+/* ==========================================================================
+   6. RESPONSIVE  ·  escritorio (>1024px) · tablet (641–1024px) · móvil (≤640px)
+   ========================================================================== */
+@media (max-width:1024px){
+  .page .container{padding-left:var(--space-24);padding-right:var(--space-24)}
+  .page .layout{gap:var(--space-24)}
+  .page .layout>nav{flex:1 1 100%;max-width:none}
+  .page .layout>nav .nav-list{flex-direction:row;flex-wrap:wrap}
+  .page .layout>nav .nav-list a{padding:var(--space-8) var(--space-14)}
+  .page h1{font-size:clamp(2rem,4.4vw,2.875rem)}
+  .footer-cols{gap:var(--space-32)}
+  .footer-col{flex-basis:calc(50% - var(--space-32))}
+}
+@media (max-width:640px){
+  .page .container{padding-left:var(--space-16);padding-right:var(--space-16)}
+  .page .container--footer{padding-top:var(--space-32)}
+  .page h1{font-size:clamp(1.75rem,8vw,2.125rem)}
+  .page .card{border-radius:var(--radius-xl)}
+  .page .topbar{padding-top:var(--space-14);padding-bottom:var(--space-14)}
+  .page .logo{font-size:1.5rem}
+  .page .logo__mark{width:32px;height:32px}
+  .hd-nav .nav-list{row-gap:var(--space-4);column-gap:var(--space-20);justify-content:center}
+  .footer-col{flex-basis:100%}
+  .footer-bottom{flex-direction:column}
+  .pgl{gap:var(--space-6)}
+  .page .g{grid-template-columns:minmax(0,1fr)}
+}
+}

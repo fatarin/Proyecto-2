@@ -1,0 +1,115 @@
+PAWLINK · PROTOTIPO WEB (Proyecto 2) · Fernando Asensi
+VERSIÓN BACKUP COMPLETA (21/11/2026)
+=====================================================
+Plataforma donde las protectoras registran a sus mascotas (PawFriends) y los usuarios las ayudan:
+PawMate (apadrinar), PawCare (aportar a un tratamiento) y PawGift (regalar un producto).
+Prototipo en HTML + CSS + JavaScript, sin backend ni pagos reales. Se ejecuta en local.
+
+1. CÓMO ABRIRLO
+---------------
+- Descomprime la carpeta y abre index.html con doble clic (no necesita servidor).
+- Barra "Modo prueba" (arriba): permite ver el sitio como Visitante, Usuario, Protectora o Admin.
+- Usuario demo: Lucía Ferrer. Protectora demo: Huella Abierta. Fecha de referencia de los datos: 13/11/2026.
+
+2. ESTRUCTURA
+-------------
+index.html ................ página principal (Dashboard)
+views/public ............. páginas públicas (apadrinar, tratamientos, regalos, ficha, información, textos legales)
+views/auth ............... entrar, registro de usuario y de protectora, recuperar contraseña
+views/usuario ............ área del usuario (PawFriends, ayuda, notificaciones, pagos, datos)
+views/protectora ......... área de la protectora (panel, mascotas, tratamientos, cuentas, PawGifts)
+views/admin .............. backoffice de PawLink (revisiones, usuarios, protectoras, configuración)
+views/dialogs, emails .... ventanas de detalle y plantillas de correo simuladas
+assets/css ............... hojas de estilo (main.css importa el resto)
+assets/js ................ core, components, models, views, controllers y data (arquitectura MVC)
+assets/data/mockdata.json  base de datos simulada (ver LEEME-MOCKDATA.md)
+
+3. ESTADO DE ESTA VERSIÓN
+-------------------------
+Versión completa y funcional, preparada como copia de seguridad para la entrega del 25/11/2026. Respecto a la entrega del 18/11/2026
+(filtros y validaciones desactivados) incorpora:
+- Validación de formularios activa (26 formularios): en tiempo real al escribir y al salir del campo, mensajes en pantalla y sin tooltips
+  del navegador. Los campos obligatorios llevan asterisco (*).
+- Filtros y buscadores activos: Dashboard, PawMate, PawCare, PawGift, Protectoras, historial de la ficha, Mi ayuda, Mis notificaciones, FAQ.
+- Paginación real por JS: 6 tarjetas por página (8 en PawGift), con botones Anterior / 1 2 … / Siguiente que se recalculan al filtrar.
+- Listado y ficha de Protectoras generados desde el mockdata (antes eran maquetas estáticas).
+- Sin textos de maqueta: se han sustituido todos los [corchetes] por contenido de ejemplo coherente con el mockdata; las cifras de Transparencia
+  se calculan con los datos y las de «Cuentas claras» cuadran entre tablas, resúmenes y barras.
+- Todos los enlaces operativos: los destinos que no existen en el prototipo muestran un aviso «Simulación».
+- Favicon y 404.html.
+Interruptor de filtros: PawLink.FILTROS_ACTIVOS en assets/js/core/app.js (ver LEEME-MOCKDATA.md, apartado 3).
+
+4. CAMBIOS DESDE EL HITO 1 (03/11/2026)
+---------------------------------------
+4.1 Decisiones de producto
+- Comisión de PawLink 0 %: el 100 % de PawMate y PawCare llega a la protectora (el único ingreso es el margen de PawGift).
+- PawMate: dos modalidades, pago único de 30 días (Bizum o tarjeta) o cuota mensual (solo tarjeta); importes de 5, 10 o 20 €,
+  o libre superior a 20 €. Sin "pausar". Estados: ACTIVO, SUSPENDIDO (impago), CANCELADO y FINALIZADO.
+- Impago: 3 reintentos en 7 días; el apadrinamiento queda SUSPENDIDO y conserva la mascota 15 días, y después pasa a CANCELADO.
+- Toda mascota nueva la revisa y valida PawLink antes de publicarse.
+- La protectora aporta datos reales privados (solo los ve PawLink) y, si quiere, un contacto público.
+- "Colaborador" de una mascota: quien ha hecho un regalo o aportado a su tratamiento, aunque sea parcialmente.
+- "Mucho tiempo en protectora" se calcula desde la fecha de entrada (umbral de 12 meses); no es un estado de la mascota.
+- Retirada la mensajería usuario-protectora (queda como mejora futura).
+
+4.2 Datos simulados (mockdata)
+- Un único mockdata.json con las 17 tablas de la memoria: 10 usuarios, 10 protectoras, 20 mascotas, 27 apadrinamientos,
+  124 cuotas, 230 pagos, 14 tratamientos, 30 regalos y 290 notificaciones, entre otros.
+- Columnas añadidas (pendientes de reflejar en la memoria): apadrinamiento.modalidad, pago.metodo_pago,
+  tratamiento.urgente y tratamiento.categoria.
+- Casos de ejemplo: cuotas cobradas, fallidas y reembolsadas; apadrinamientos suspendido, cancelado por impago y finalizado
+  por adopción; pagos con tarjeta y Bizum; protectoras en revisión o rechazadas.
+- mockdata.js es copia exacta del JSON (el navegador bloquea fetch de ficheros locales). Los cambios de la demo se guardan solo
+  en el navegador (localStorage).
+- Las 20 mascotas tienen foto real en assets/img/ (jpg 960x720). Si una foto no carga se muestra assets/img/random.jpg.
+
+4.3 Funcionalidad añadida respecto a la memoria
+- Sesión por rol (visitante, usuario, protectora, admin) con cabecera adaptada.
+- Backoffice de PawLink: altas, presupuestos, facturas, cambios de perfil, mascotas, protectoras, usuarios, cuentas claras,
+  configuración y auditoría; plazos de revisión de 48 h.
+- Revisión de presupuestos y facturas de tratamiento; cambios de perfil de protectora pendientes de revisión.
+- Liquidaciones y justificantes ("Cuentas claras"); certificados fiscales; justificante de entrega de regalos con foto.
+- Páginas informativas: Cómo funciona, FAQ, Transparencia, Contacto, Mapa del sitio y textos legales.
+
+4.4 Entrega técnica
+- Estructura por carpetas y nombres de fichero en minúsculas con guiones.
+- Arquitectura modelo-vista-controlador en JavaScript (models/db.js, views/cards.js, controllers/*.js), pensada para sustituir
+  el mockdata por un backend Node/Express. Los scripts se cargan según el atributo data-module de cada página.
+- Menú hamburguesa (<900 px), panel lateral fijo (>1025 px) y estilos de impresión.
+- Modales de confirmación, avisos (toast) y accesibilidad (foco, aria, teclado).
+- Favicon (logo de PawLink) y página 404.html.
+- Paginador reutilizable (components/pager.js) y validador de formularios por reglas en atributos (data-v / data-msg).
+
+5. LIMITACIONES CONOCIDAS (prototipo en local)
+----------------------------------------------
+- No hay backend: los pagos, envíos de correo y subidas de archivos están simulados; los datos que cambias se guardan solo en el navegador.
+- Con los datos actuales cada listado tiene 2 páginas (12 mascotas, 8 tratamientos, 15 regalos, 7 protectoras verificadas).
+- En PawMate el chip «Cerca de mí» está desactivado (requiere geolocalización); en Protectoras funciona con una ubicación de demostración (Valencia).
+- Algunas acciones secundarias (exportar CSV, editar plantillas, Cobros e IBAN…) solo muestran un aviso de simulación.
+- Los textos legales son de ejemplo: la redacción definitiva debe revisarla asesoría jurídica.
+- El panel de administración usa datos de ejemplo estáticos, no el mockdata.
+- Para publicarlo (GitHub Pages, Netlify o Vercel) habrá que decidir la indexación y revisar qué carpetas se suben. El 404.html usa
+  enlaces relativos: al publicarlo en una subcarpeta puede no cargar bien los estilos.
+
+6. COBERTURA HITO2
+------------------
+Estado a 21/11/2026 (versión backup completa).
+
+1) Validación avanzada de formularios por JS ....................... CUBIERTO
+   - Validación en tiempo real (input / blur) de texto, emails, contraseñas y fechas (components/form-validator.js, reglas por campo).
+   - Mensajes personalizados en el DOM, sin tooltips del navegador (los formularios llevan novalidate).
+   - Activa en 26 formularios: entrar, registro de usuario y de protectora, recuperar contraseña, contacto, mis datos, añadir mascota,
+     crear tratamiento, subir factura, diálogos de administración, etc.
+
+2) Renderizado dinámico desde datos simulados ...................... CUBIERTO
+   - assets/data/mockdata.json y assets/js/data/mockdata.js (copia idéntica) con las 17 tablas del Proyecto 1 (10 usuarios, 10 protectoras,
+     20 mascotas, 27 apadrinamientos, 124 cuotas, 230 pagos, 14 tratamientos, 30 regalos, 290 notificaciones, etc.).
+   - El Dashboard crea sus tarjetas clonando un <template>; también se pintan desde los datos Apadrinar, Tratamientos, Regalos,
+     Protectoras (listado y ficha), la ficha de mascota y el área de usuario y de protectora, con paginación real.
+
+3) Componentes interactivos ........................................ CUBIERTO
+   a) Menú hamburguesa en móvil (<900 px).
+   b) Buscador y filtros en tiempo real: Dashboard, PawMate, PawCare, PawGift y Protectoras (chips, buscador y ordenación).
+   c) Modales de confirmación y avisos (toast), por ejemplo al cancelar un apadrinamiento.
+
+Resumen: todos los puntos del Hito 2 cubiertos en esta versión.
